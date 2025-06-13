@@ -1,0 +1,158 @@
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  color: #333;
+  overflow: hidden;
+}
+
+/* Heading */
+h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Centered form with responsive width */
+form {
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.form-col {
+  flex: 1 1 45%;
+  min-width: 200px;
+}
+.form-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+/* Inputs, selects, textareas */
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 16px;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 100px;
+}
+
+#materials-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#materials-container label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Fieldset styles */
+fieldset {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+fieldset.no-border {
+  border: none;
+  padding: 0;
+}
+
+textarea {
+  height: 100px;
+  resize: vertical;
+  min-height: 3rem;
+  max-height: 15rem;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+/* Submit button */
+#save-button {
+  background-color: #1aab8a;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#save-button:hover {
+  background-color: #159e7d;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+    align-items: flex-start;
+    overflow: auto;
+    height: auto;
+  }
+
+  form {
+    padding: 1rem;
+    margin: 1rem 0;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-col {
+    flex: 1 1 100%;
+  }
+
+  .form-button {
+    margin-top: 1.5rem;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 4rem;
+    max-height: 12rem;
+  }
+}

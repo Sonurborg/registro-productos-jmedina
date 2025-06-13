@@ -1,29 +1,29 @@
--- Crear tabla de bodegas
+-- Create table: bodegas (warehouses)
 CREATE TABLE bodegas (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL
 );
 
--- Crear tabla de sucursales
+-- Create table: sucursales (branches)
 CREATE TABLE sucursales (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     bodega_id INTEGER NOT NULL REFERENCES bodegas(id)
 );
 
--- Crear tabla de monedas
+-- Create table: monedas (currencies)
 CREATE TABLE monedas (
     id SERIAL PRIMARY KEY,
     codigo VARCHAR(10) NOT NULL
 );
 
--- Crear tabla de materiales
+-- Create table: materiales (materials)
 CREATE TABLE materiales (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL
 );
 
--- Crear tabla de productos
+-- Create table: productos (products)
 CREATE TABLE productos (
     id SERIAL PRIMARY KEY,
     codigo VARCHAR(15) NOT NULL UNIQUE,
@@ -35,46 +35,51 @@ CREATE TABLE productos (
     descripcion TEXT NOT NULL
 );
 
--- Relación muchos a muchos: productos ↔ materiales
+-- Create junction table: products ↔ materials (many-to-many)
 CREATE TABLE producto_material (
     producto_id INTEGER REFERENCES productos(id) ON DELETE CASCADE,
     material_id INTEGER REFERENCES materiales(id),
     PRIMARY KEY (producto_id, material_id)
 );
 
--- Insertar datos de ejemplo en bodegas, sucursales, monedas, materiales y productos
+-- Insert sample data into bodegas, sucursales, monedas, materiales, and productos
 
--- Insertar datos de ejemplo en bodegas
+-- Insert sample warehouses
 INSERT INTO bodegas (nombre) VALUES
 ('Bodega Central'),
 ('Bodega Norte'),
 ('Bodega Sur');
--- Insertar datos de ejemplo en sucursales
+
+-- Insert sample branches
 INSERT INTO sucursales (nombre, bodega_id) VALUES
 ('Sucursal Centro', 1),
 ('Sucursal Norte', 2),
 ('Sucursal Sur', 3);
--- Insertar datos de ejemplo en monedas
+
+-- Insert sample currencies
 INSERT INTO monedas (codigo) VALUES
 ('CLP'),
 ('USD'),
 ('EUR');
--- Insertar datos de ejemplo en materiales
+
+-- Insert sample materials
 INSERT INTO materiales (nombre) VALUES
 ('Acero'),
 ('Plástico'),
 ('Madera'),
 ('Vidrio'),
 ('Cerámica');
--- Insertar datos de ejemplo en productos
+
+-- Insert sample products
 INSERT INTO productos (codigo, nombre, bodega_id, sucursal_id, moneda_id, precio, descripcion) VALUES
 ('PROD001', 'Producto A', 1, 1, 1, 100.00, 'Descripción del Producto A'),
 ('PROD002', 'Producto B', 2, 2, 2, 200.00, 'Descripción del Producto B'),
 ('PROD003', 'Producto C', 3, 3, 3, 300.00, 'Descripción del Producto C');
--- Insertar datos de ejemplo en la relación productos ↔ materiales
+
+-- Link sample products to materials
 INSERT INTO producto_material (producto_id, material_id) VALUES
-(1, 1), -- Producto A con Acero
-(1, 2), -- Producto A con Plástico
-(2, 3), -- Producto B con Madera
-(3, 4), -- Producto C con Vidrio
-(3, 5); -- Producto C con Cerámica
+(1, 1), -- Product A with Acero
+(1, 2), -- Product A with Plástico
+(2, 3), -- Product B with Madera
+(3, 4), -- Product C with Vidrio
+(3, 5); -- Product C with Cerámica

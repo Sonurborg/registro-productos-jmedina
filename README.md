@@ -23,4 +23,14 @@ Sistema de registro de productos desarrollado con PHP, JavaScript, HTML y CSS si
 
    git clone git@github.com:Sonurborg/registro-productos-jmedina.git
 
-2.
+2. Configura el archivo .env con tus credenciales de base de datos:
+
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_NAME= tu_basededatos
+   DB_USER= tu_usuario
+   DB_PASSWORD= tu_contraseña
+
+3. Importa el archivo SQL incluido (database.sql) en tu base de datos PostgreSQL para crear las tablas y cargar datos de ejemplo.
+
+4. Inicia tu servidor local (XAMPP, MAMP, etc.) y accede al proyecto desde tu navegador.

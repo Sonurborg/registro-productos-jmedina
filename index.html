@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Producto</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <form id="product-form">
+      <h1>Formulario de Producto</h1>
+
+      <div class="form-row">
+        <!-- Product Code -->
+        <div class="form-col">
+          <label for="code">Código</label>
+          <input type="text" id="code" name="codigo" />
+          <span id="code-message" class="form-message"></span>
+        </div>
+
+        <!-- Product Name -->
+        <div class="form-col">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="nombre" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <!-- Warehouse -->
+        <div class="form-col">
+          <label for="bodega">Bodega</label>
+          <select id="bodega" name="bodega">
+            <option value="">--</option>
+          </select>
+        </div>
+
+        <!--  Branch -->
+        <div class="form-col">
+          <label for="sucursal">Sucursal</label>
+          <select id="sucursal" name="sucursal">
+            <option value="">--</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <!-- Currency -->
+        <div class="form-col">
+          <label for="moneda">Moneda</label>
+          <select id="moneda" name="moneda">
+            <option value="">--</option>
+          </select>
+        </div>
+
+        <!-- Price -->
+        <div class="form-col">
+          <label for="price">Precio</label>
+          <input type="text" id="price" name="precio" />
+        </div>
+      </div>
+
+      <br />
+
+      <!-- Materials -->
+      <label>Material del Producto</label>
+      <fieldset class="no-border">
+        <div id="materials-container">
+          <!-- Material checkboxes will be inserted here via JS -->
+        </div>
+      </fieldset>
+
+      <br />
+
+      <!-- Description -->
+      <label for="description">Descripción</label>
+      <textarea id="description" name="descripcion"></textarea>
+
+      <!-- Save Button -->
+      <div class="form-button">
+        <button type="button" id="save-button" onclick="saveProduct()">
+          <span>Guardar Producto</span>
+        </button>
+      </div>
+    </form>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
