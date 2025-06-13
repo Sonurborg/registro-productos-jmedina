@@ -101,7 +101,7 @@ function loadMaterials() {
 
 // Function to validate product code uniqueness
 function validateProductCodeUniqueness(code) {
-    fetch(`php/validate_product_code.php?codigo=${code}`)
+    fetch(`php/check_code.php?codigo=${code}`)
         .then(res => res.json())
         .then(data => {
             const message = document.getElementById('code-message');
@@ -118,7 +118,7 @@ function validateProductCodeUniqueness(code) {
 // Function to save the product
 function saveProduct() {
     if (!validateForm()) {
-        alert('Por favor, completa todos los campos correctamente.');
+        showCustomAlert('Por favor, completa todos los campos correctamente. ');
         return;
     }
 
@@ -154,15 +154,15 @@ function submitProduct(formData) {
         })
         .then(response => {
             if (response.success) {
-                alert('Producto registrado correctamente.');
+                showCustomAlert('Producto registrado correctamente.');
                 resetForm();
             } else {
-                alert('Error al registrar producto:\n' + response.errors.join('\n'));
+                showCustomAlert('Error al registrar producto: \n' + response.errors.join('\n'));
             }
         })
         .catch(err => {
             console.error('Error de conexión o de formato:', err);
-            alert('Error en la conexión con el servidor.');
+            showCustomAlert('Error en la conexión con el servidor.');
         });
 }
 
@@ -190,4 +190,26 @@ function validateForm() {
     });
 
     return valid;
+}
+
+// Function to show a custom alert with messages
+function showCustomAlert(messages) {
+    const alertBox = document.getElementById('custom-alert');
+    const alertMessage = document.getElementById('custom-alert-message');
+    const okButton = document.getElementById('custom-alert-ok');
+
+    // Unifica mensajes si es array
+    if (Array.isArray(messages)) {
+        alertMessage.innerHTML = messages.map(msg => `<div">${msg}</div>`).join('\n');
+    } else {
+        const formatted = messages.replace(/\n/g, '<br> - ');
+        alertMessage.innerHTML = `<div>${formatted}</div>`;
+    }
+
+
+    alertBox.classList.remove('hidden');
+
+    okButton.onclick = () => {
+        alertBox.classList.add('hidden');
+    };
 }
