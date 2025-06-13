@@ -14,7 +14,7 @@ try {
     $bodega = $_POST['bodega'] ?? '';
     $sucursal = $_POST['sucursal'] ?? '';
     $moneda = $_POST['moneda'] ?? '';
-    $precio = $_POST['precio'] ?? '';
+    $precio = str_replace(',', '.', $_POST['precio'] ?? '');
     $materiales = $_POST['materiales'] ?? [];
     $descripcion = $_POST['descripcion'] ?? '';
 

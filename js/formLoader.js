@@ -4,7 +4,7 @@ function loadWarehouses() {
     fetchAndPopulateSelect(
         'php/get_warehouse.php',
         'bodega',
-        '-- Selecciona una bodega --',
+        '',
         (item) => item.nombre
     );
 }
@@ -13,14 +13,14 @@ function loadWarehouses() {
 function loadBranches(warehouseId) {
     const select = document.getElementById('sucursal');
     if (!warehouseId) {
-        select.innerHTML = '<option value="">-- Selecciona una bodega primero --</option>';
+        select.innerHTML = '<option value=""></option>';
         return;
     }
 
     fetchAndPopulateSelect(
         `php/get_branch.php?bodega_id=${warehouseId}`,
         'sucursal',
-        '-- Selecciona una sucursal --',
+        '',
         (item) => item.nombre
     );
 }
@@ -30,7 +30,7 @@ function loadCurrencies() {
     fetchAndPopulateSelect(
         'php/get_currency.php',
         'moneda',
-        '-- Selecciona una moneda --',
+        '',
         (item) => item.codigo
     );
 }

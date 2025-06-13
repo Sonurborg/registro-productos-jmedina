@@ -52,9 +52,15 @@ INSERT INTO bodegas (nombre) VALUES
 
 -- Insert sample branches
 INSERT INTO sucursales (nombre, bodega_id) VALUES
-('Sucursal Centro', 1),
-('Sucursal Norte', 2),
-('Sucursal Sur', 3);
+('Sucursal Centro 1', 1),
+('Sucursal Centro 2', 1),
+('Sucursal Centro 3', 1),
+('Sucursal Norte 1', 2),
+('Sucursal Talca', 2),
+('Sucursal Iquique', 2),
+('Sucursal Sur a', 3),
+('Sucursal Sur b', 3),
+('Sucursal Sur c', 3);
 
 -- Insert sample currencies
 INSERT INTO monedas (codigo) VALUES
@@ -64,11 +70,11 @@ INSERT INTO monedas (codigo) VALUES
 
 -- Insert sample materials
 INSERT INTO materiales (nombre) VALUES
-('Acero'),
 ('Plástico'),
+('Metal'),
 ('Madera'),
 ('Vidrio'),
-('Cerámica');
+('Textil');
 
 -- Insert sample products
 INSERT INTO productos (codigo, nombre, bodega_id, sucursal_id, moneda_id, precio, descripcion) VALUES
