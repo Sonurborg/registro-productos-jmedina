@@ -27,11 +27,13 @@ Sistema de registro de productos desarrollado con PHP, JavaScript, HTML y CSS si
 
 2. Configura el archivo .env con tus credenciales de base de datos:
 
+   ```bash
    DB_HOST=localhost
    DB_PORT=5432
    DB_NAME= tu_basededatos
    DB_USER= tu_usuario
    DB_PASSWORD= tu_contraseña
+   ```
 
 3. Importa el archivo SQL incluido (db_structure.sql) en tu base de datos PostgreSQL para crear las tablas y cargar datos de ejemplo.
 
