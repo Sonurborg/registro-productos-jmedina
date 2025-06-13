@@ -12,7 +12,7 @@ Sistema de registro de productos desarrollado con PHP, JavaScript, HTML y CSS si
 
 ## Requisitos
 
-- **Versión de PHP:** 8.0 o superior
+- **Versión de PHP:** 8.0 o superior  
 - **Versión de Base de Datos:** PostgreSQL 13+ (compatible con MySQL 8+)
 - Servidor local (XAMPP, MAMP, WAMP o Apache/Nginx manual)
 - Navegador moderno con soporte para JavaScript
@@ -36,6 +36,7 @@ Sistema de registro de productos desarrollado con PHP, JavaScript, HTML y CSS si
 3. Importa el archivo SQL incluido (db_structure.sql) en tu base de datos PostgreSQL para crear las tablas y cargar datos de ejemplo.
 
 4. Inicia tu servidor local (XAMPP, MAMP, etc.) y accede al proyecto desde tu navegador.
+
 
 Desarrollado por: Javier Medina
 Contacto: sonurborg@gmail.com
